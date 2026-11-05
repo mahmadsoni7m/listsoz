@@ -1,7 +1,9 @@
 package tj.soni.listoffice.feature.dashboard
 
 import androidx.compose.animation.core.animateIntAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,8 +36,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import tj.soni.listoffice.MainViewModel
+import tj.soni.listoffice.R
 import tj.soni.listoffice.core.theme.UltraColors
 import tj.soni.listoffice.core.ui.EmptyState
 import tj.soni.listoffice.core.ui.GradientHeader
@@ -71,6 +75,9 @@ fun DashboardScreen(vm: MainViewModel) {
         GradientHeader(
             title = greeting,
             subtitle = "ListSoz",
+            leading = {
+                Image(painterResource(R.drawable.ic_fg), contentDescription = "ListSoz", modifier = Modifier.size(56.dp))
+            },
             trailing = {
                 IconButton(onClick = { vm.showSettings = true }) {
                     Icon(Icons.Default.Settings, contentDescription = "Танзимот", tint = Color.White)

@@ -88,6 +88,7 @@ fun GradientHeader(
     title: String,
     subtitle: String,
     modifier: Modifier = Modifier,
+    leading: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null
 ) {
     Box(
@@ -100,6 +101,10 @@ fun GradientHeader(
             .padding(horizontal = 20.dp, vertical = 16.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
+            if (leading != null) {
+                leading()
+                Spacer(Modifier.width(10.dp))
+            }
             Column(Modifier.weight(1f)) {
                 Text(title, style = MaterialTheme.typography.headlineSmall, color = Color.White)
                 Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = Color(0xFFB9CBC0))
